@@ -970,12 +970,15 @@
 
             .about .wrap {
                 grid-template-columns: 1fr;
-                gap: 50px;
+                gap: 0;
             }
 
             .about-photo-card {
-                max-width: 400px;
-                margin: 0 auto;
+                display: none;
+            }
+
+            .about-copy p {
+                max-width: none;
             }
 
             .cards {
@@ -984,7 +987,7 @@
 
             .video-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 18px;
+                gap: 16px;
             }
 
             .band .wrap {
@@ -1020,9 +1023,37 @@
             }
 
             .video-grid {
-                grid-template-columns: 1fr;
-                max-width: 320px;
-                margin: 0 auto;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                max-width: none;
+            }
+
+            .video-box {
+                border-radius: 16px;
+            }
+
+            .video-overlay {
+                padding: 14px 10px;
+            }
+
+            .video-overlay .v-title {
+                font-size: .84rem;
+            }
+
+            .video-overlay .v-tag {
+                font-size: .52rem;
+            }
+
+            .video-play-btn {
+                top: 10px;
+                right: 10px;
+                width: 28px;
+                height: 28px;
+            }
+
+            .video-play-btn svg {
+                width: 10px;
+                height: 10px;
             }
 
             .hero-badge {
