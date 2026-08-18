@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tatiane Medeiros — Estética Corporal &amp; Massoterapia a Domicílio em Teresina</title>
-    <meta name="description" content="Estética corporal e massoterapia a domicílio em Teresina-PI com Tatiane Medeiros. Drenagem linfática, massagem relaxante, redutora e terapêutica no conforto da sua casa.">
+    <meta name="description"
+        content="Estética corporal e massoterapia a domicílio em Teresina-PI com Tatiane Medeiros. Drenagem linfática, massagem relaxante, redutora e terapêutica no conforto da sua casa.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -48,7 +49,8 @@
             overflow-x: hidden;
         }
 
-        img, video {
+        img,
+        video {
             display: block;
             max-width: 100%;
         }
@@ -199,6 +201,20 @@
             margin-top: 2px;
         }
 
+        header:not(.solid) .brand-name {
+            color: #FFFFFF;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        header:not(.solid) .brand-name span {
+            color: var(--gold-light);
+        }
+
+        header:not(.solid) .mono {
+            border-color: var(--gold-light);
+            color: var(--gold-light);
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -274,40 +290,90 @@
         /* ---------- hero ---------- */
         .hero {
             position: relative;
-            padding: 155px 0 90px;
+            padding: 160px 0 100px;
             overflow: hidden;
+            background: #14100A;
+        }
+
+        .hero-bg-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-bg-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 25%;
+            opacity: 0.92;
+            filter: contrast(1.04) brightness(0.94);
+        }
+
+        .hero-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(20, 16, 10, 0.45) 0%, rgba(20, 16, 10, 0.68) 100%);
+            z-index: 1;
         }
 
         .hero .wrap {
+            position: relative;
+            z-index: 2;
             display: grid;
-            grid-template-columns: 1.08fr .92fr;
+            grid-template-columns: 1.1fr .9fr;
             gap: 6vw;
             align-items: center;
+        }
+
+        .hero-copy .eyebrow {
+            color: var(--gold-light);
+        }
+
+        .hero-copy .eyebrow::before {
+            background: var(--gold-light);
         }
 
         .hero-copy h1 {
             font-size: clamp(2.2rem, 4.4vw, 3.5rem);
             line-height: 1.1;
             margin: 20px 0 22px;
+            color: #FFFFFF;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
         }
 
         .hero-copy h1 em {
             font-style: italic;
             font-weight: 400;
-            color: var(--gold-2);
+            color: var(--gold-light);
         }
 
         .hero-copy p {
             font-size: 1.05rem;
             line-height: 1.75;
-            color: var(--ink-soft);
+            color: #EBDDC2;
             max-width: 48ch;
             margin-bottom: 34px;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
         }
 
         .hero-copy p strong {
-            color: var(--ink);
+            color: #FFFFFF;
             font-weight: 600;
+        }
+
+        .hero-copy .link-arrow {
+            color: var(--gold-light);
+            border-color: rgba(233, 211, 160, 0.5);
+        }
+
+        .hero-copy .link-arrow:hover {
+            color: #FFFFFF;
+            border-color: #FFFFFF;
         }
 
         .hero-ctas {
@@ -368,7 +434,7 @@
             font-family: 'Fraunces', serif;
             font-style: italic;
             font-size: 1.25rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
         }
 
         .frame-caption .role {
@@ -378,7 +444,7 @@
             opacity: .95;
             margin-top: 3px;
             color: var(--gold-light);
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
         .hero-visual .petal {
@@ -636,7 +702,7 @@
         .video-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(26, 21, 14, 0.85) 100%);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(26, 21, 14, 0.85) 100%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -1074,6 +1140,10 @@
         }
 
         @media (max-width:600px) {
+            .hero-bg-video video {
+                object-position: center 15%;
+            }
+
             .benefits-grid,
             .cards {
                 grid-template-columns: 1fr;
@@ -1123,11 +1193,29 @@
             }
 
             .hero-badge {
-                position: static;
-                margin-top: -30px;
-                max-width: none;
-                margin-left: 16px;
-                margin-right: 16px;
+                position: relative;
+                margin-top: 18px;
+                max-width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                left: auto;
+                bottom: auto;
+                background: var(--ivory);
+                border: 1px solid var(--line);
+                border-radius: 16px;
+                padding: 16px 20px;
+                box-shadow: var(--shadow-subtle);
+                text-align: center;
+            }
+
+            .hero-badge .k {
+                font-size: .98rem;
+                line-height: 1.35;
+            }
+
+            .hero-badge .d {
+                font-size: .72rem;
+                margin-top: 4px;
             }
 
             .section-pad {
@@ -1179,7 +1267,9 @@
             <span class="mono">TM</span>
             <span class="brand-name">Tatiane Medeiros<span>Estética &amp; Massoterapia</span></span>
         </a>
-        <a class="btn small" href="https://wa.me/5586900000000?text=Ol%C3%A1%2C%20Tatiane!%20Gostaria%20de%20agendar%20um%20atendimento%20a%20domic%C3%ADlio." data-cursor="grow" target="_blank" rel="noopener">
+        <a class="btn small"
+            href="https://wa.me/5586900000000?text=Ol%C3%A1%2C%20Tatiane!%20Gostaria%20de%20agendar%20um%20atendimento%20a%20domic%C3%ADlio."
+            data-cursor="grow" target="_blank" rel="noopener">
             Agendar
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M13 6l6 6-6 6" />
@@ -1191,6 +1281,11 @@
 
         <!-- 1. TOPO / HERO -->
         <section class="hero">
+            <div class="hero-bg-video">
+                <video src="public/video-3.mp4" autoplay loop muted playsinline></video>
+                <div class="hero-bg-overlay"></div>
+            </div>
+
             <svg class="flow flow-hero" viewBox="0 0 500 700" fill="none">
                 <path d="M40 10 C 220 60, 40 180, 220 240 S 440 340, 260 420 S 60 560, 260 640" />
             </svg>
@@ -1199,9 +1294,12 @@
                 <div class="hero-copy">
                     <p class="eyebrow reveal in">Atendimento a Domicílio · Teresina-PI</p>
                     <h1 class="reveal in d1">Seu momento de cuidado,<br><em>sem precisar</em> sair de casa.</h1>
-                    <p class="reveal in d2">Estética corporal e massoterapia a domicílio em Teresina-PI.<br><strong>Você escolhe o horário. A Tatiane vai até você.</strong></p>
+                    <p class="reveal in d2">Estética corporal e massoterapia a domicílio em Teresina-PI.<br><strong>Você
+                            escolhe o horário. A Tatiane vai até você.</strong></p>
                     <div class="hero-ctas reveal in d3">
-                        <a class="btn" href="https://wa.me/5586900000000?text=Ol%C3%A1%2C%20Tatiane!%20Gostaria%20de%20agendar%20um%20atendimento%20a%20domic%C3%ADlio." data-cursor="grow" target="_blank" rel="noopener">
+                        <a class="btn"
+                            href="https://wa.me/5586900000000?text=Ol%C3%A1%2C%20Tatiane!%20Gostaria%20de%20agendar%20um%20atendimento%20a%20domic%C3%ADlio."
+                            data-cursor="grow" target="_blank" rel="noopener">
                             Agendar pelo WhatsApp
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M5 12h14M13 6l6 6-6 6" />
@@ -1215,7 +1313,8 @@
                     <div class="petal"></div>
                     <div class="petal two"></div>
                     <div class="frame">
-                        <img src="public/Tatiane.jpeg" alt="Tatiane Medeiros — Esteticista e Massoterapeuta a Domicílio">
+                        <img src="public/Tatiane.jpeg"
+                            alt="Tatiane Medeiros — Esteticista e Massoterapeuta a Domicílio">
                         <div class="frame-ring"></div>
                         <div class="frame-caption">
                             <div class="name">Tatiane Medeiros</div>
@@ -1242,7 +1341,8 @@
                 <div class="head-block reveal">
                     <p class="eyebrow">Por que Domiciliar?</p>
                     <h2>Por que sair de casa se o cuidado pode chegar até você?</h2>
-                    <p>Mais conforto, tempo ganho e tranquilidade para o seu corpo receber o melhor tratamento sem o estresse da rua.</p>
+                    <p>Mais conforto, tempo ganho e tranquilidade para o seu corpo receber o melhor tratamento sem o
+                        estresse da rua.</p>
                 </div>
 
                 <div class="benefits-grid">
@@ -1289,7 +1389,9 @@
                     <div class="video-box reveal d1" data-cursor="grow">
                         <video src="public/video-1.mp4" autoplay loop muted playsinline></video>
                         <div class="video-play-btn">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
                         </div>
                         <div class="video-overlay">
                             <span class="v-tag">Atendimento</span>
@@ -1299,7 +1401,9 @@
                     <div class="video-box reveal d2" data-cursor="grow">
                         <video src="public/video-2.mp4" autoplay loop muted playsinline></video>
                         <div class="video-play-btn">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
                         </div>
                         <div class="video-overlay">
                             <span class="v-tag">Relaxamento</span>
@@ -1309,7 +1413,9 @@
                     <div class="video-box reveal d3" data-cursor="grow">
                         <video src="public/video-3.mp4" autoplay loop muted playsinline></video>
                         <div class="video-play-btn">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
                         </div>
                         <div class="video-overlay">
                             <span class="v-tag">Cuidado</span>
@@ -1319,7 +1425,9 @@
                     <div class="video-box reveal d4" data-cursor="grow">
                         <video src="public/video-4.mp4" autoplay loop muted playsinline></video>
                         <div class="video-play-btn">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
                         </div>
                         <div class="video-overlay">
                             <span class="v-tag">Bem-estar</span>
@@ -1342,7 +1450,8 @@
                 <div class="head-block reveal">
                     <p class="eyebrow">Procedimentos</p>
                     <h2>Encontre o cuidado ideal para você.</h2>
-                    <p>Técnicas manuais e estéticas aplicadas com propósito claro — seja para desinchar, modelar ou relaxar profundamente.</p>
+                    <p>Técnicas manuais e estéticas aplicadas com propósito claro — seja para desinchar, modelar ou
+                        relaxar profundamente.</p>
                 </div>
 
                 <div class="cards">
@@ -1350,35 +1459,41 @@
                         <div>
                             <span class="icon-badge">💧</span>
                             <h3>Drenagem Linfática</h3>
-                            <p>Técnica de massagem com movimentos suaves e ritmo preciso, voltada ao cuidado corporal, eliminação de líquidos e sensação imediata de leveza.</p>
+                            <p>Técnica de massagem com movimentos suaves e ritmo preciso, voltada ao cuidado corporal,
+                                eliminação de líquidos e sensação imediata de leveza.</p>
                         </div>
                     </div>
                     <div class="card reveal d1">
                         <div>
                             <span class="icon-badge">💆‍♀️</span>
                             <h3>Massagem Relaxante</h3>
-                            <p>Um momento para desacelerar a mente, soltar o corpo e aliviar as tensões e o estresse acumulados no dia a dia.</p>
+                            <p>Um momento para desacelerar a mente, soltar o corpo e aliviar as tensões e o estresse
+                                acumulados no dia a dia.</p>
                         </div>
                     </div>
                     <div class="card reveal d2">
                         <div>
                             <span class="icon-badge">✨</span>
                             <h3>Massagem Redutora</h3>
-                            <p>Massagem com técnicas e manobras específicas para contorno corporal, melhora da circulação e foco nos seus objetivos estéticos.</p>
+                            <p>Massagem com técnicas e manobras específicas para contorno corporal, melhora da
+                                circulação e foco nos seus objetivos estéticos.</p>
                         </div>
                     </div>
                     <div class="card reveal d3">
                         <div>
                             <span class="icon-badge">🌿</span>
                             <h3>Massagem Linfática</h3>
-                            <p>Um atendimento voltado ao equilíbrio, bem-estar e cuidado corporal completo, renovando a disposição do seu corpo.</p>
+                            <p>Um atendimento voltado ao equilíbrio, bem-estar e cuidado corporal completo, renovando a
+                                disposição do seu corpo.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- CTA INTERMEDIÁRIO -->
                 <div class="services-cta-box reveal d2">
-                    <a class="btn" href="https://wa.me/5586900000000?text=Ol%C3%A1%2C%20Tatiane!%20Fiquei%20em%20d%C3%BAvida%20sobre%20qual%20procedimento%20escolher.%20Pode%20me%20ajudar%3F" data-cursor="grow" target="_blank" rel="noopener">
+                    <a class="btn"
+                        href="https://wa.me/5586900000000?text=Ol%C3%A1%2C%20Tatiane!%20Fiquei%20em%20d%C3%BAvida%20sobre%20qual%20procedimento%20escolher.%20Pode%20me%20ajudar%3F"
+                        data-cursor="grow" target="_blank" rel="noopener">
                         Não sei qual escolher — Falar no WhatsApp
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M13 6l6 6-6 6" />
@@ -1408,8 +1523,11 @@
                     <p class="eyebrow reveal">Apresentação</p>
                     <h2 class="reveal d1">Prazer, eu sou a Tatiane.</h2>
                     <div class="reveal d2" style="margin-top:24px">
-                        <p>Sou profissional de estética e massoterapia e acredito que cuidar de si não precisa ser complicado.</p>
-                        <p>Por isso, levo meu atendimento até você, proporcionando um momento de cuidado, conforto e atenção no ambiente da sua própria casa — com toda a estrutura, higiene e dedicação que você merece.</p>
+                        <p>Sou profissional de estética e massoterapia e acredito que cuidar de si não precisa ser
+                            complicado.</p>
+                        <p>Por isso, levo meu atendimento até você, proporcionando um momento de cuidado, conforto e
+                            atenção no ambiente da sua própria casa — com toda a estrutura, higiene e dedicação que você
+                            merece.</p>
                     </div>
                     <div class="tags reveal d3">
                         <span class="tag">Atendimento Domiciliar</span>
@@ -1468,7 +1586,8 @@
             <div class="wrap reveal">
                 <p class="eyebrow" style="justify-content:center;color:#8C6425">Atendimento Domiciliar</p>
                 <h2 style="margin-top:16px">Seu corpo também merece um momento só seu.</h2>
-                <p>Agende seu atendimento de estética corporal e massoterapia a domicílio em Teresina e sinta a leveza de cuidar de você no seu próprio espaço.</p>
+                <p>Agende seu atendimento de estética corporal e massoterapia a domicílio em Teresina e sinta a leveza
+                    de cuidar de você no seu próprio espaço.</p>
                 <a class="btn"
                     href="https://wa.me/5586900000000?text=Ol%C3%A1%2C%20Tatiane!%20Quero%20agendar%20meu%20atendimento%20a%20domic%C3%ADlio."
                     data-cursor="grow" target="_blank" rel="noopener">
